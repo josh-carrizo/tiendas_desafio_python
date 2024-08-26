@@ -47,9 +47,6 @@ class Tienda():
                 else:
                     return False
         return False    
-    
-class Restaurante(Tienda):
-    pass
 
 class Supermercado(Tienda):
     def ListaProductos(self):
@@ -75,25 +72,17 @@ class Farmacia(Tienda):
     def RealizarVenta(self, nombre_producto, cantidad):
         if cantidad > 3:
             return False
-        return super().RealizarVenta(self,nombre_producto, cantidad)    
+        elif cantidad <= 3:    
+            for p in self._Tienda__productos:
+                if p.nombre == nombre_producto:
+                    if isinstance(self, Farmacia):
+                        return True  
+                    elif p.stock >= cantidad:
+                        p.stock = p.stock - cantidad
+                        return True
+                    else:
+                        return False  
+        
     
-# class DetalleVenta():
-#     def __init__(self):
-#         self.__items = []
-#     def agregar_item(self, item:DetalleVentaItem):
-#         self.__items.append(item)
-#     def __str__(self):
-#         retorno = ("::::::::DETALLE DE ESTA VENTA ::::::::\n"
-#                     "Producto \t Cantidad \t Valor Envío")
-#         items=[f'{i.producto}\t\t{i.cantidad}\t\t{i.envio}\n' for i in self.__items ]
-#         return f'{retorno}{''.join(items)}'
-
-# class Venta():
-#     def __init__(self):
-#         self.__detalle = DetalleVenta()
-#     def modificar_detalle(self, producto: str, cantidad : int, envio:int):
-#         detalle_venta_item = DetalleVentaItem(producto,cantidad,envio)
-#         self.__detalle.agregar_item(detalle_venta_item)    
-#     @property
-#     def detalle(self):
-#         return self.__detalle
+class Restaurante(Tienda):
+    pass

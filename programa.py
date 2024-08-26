@@ -46,31 +46,6 @@ while terminar_operacion == False:
             
         else:
             print("Venta fallida.")
-
-
-# while terminar_operacion == False:
-#     menu_productos_tienda = int(input(
-#         "Hola!\n Por favor seleccione la accion que desea realizar\n"
-#         "1.-Ingresar un nuevo producto\n2.-Actualizar el stock de un producto\n3.-Obtener lista de productos\n0.-Salir\n>"
-#     ))
-
-#     if menu_productos_tienda == 1:
-#         producto = input("\nIngrese nombre del producto vendido\n").lower()
-#         cantidad = int(input("\nIngrese cantidad vendida del producto:\n"))
-#         envio = int(input("\n Ingrese el costo de envío:\n"))
-#         venta.modificar_detalle(producto,cantidad, envio)
-
-
-#     #Actualizar stock productos
-#     elif menu_productos_tienda == 2:
-#         producto = input("\nIngrese nombre del producto \n").lower()
-#         cantidad = int(input("\nIngrese cantidad vendida del producto:\n"))
-#         envio = int(input("\n Ingrese el costo de envío:\n"))
-#         venta.modificar_detalle(producto,cantidad, envio)
-#     elif menu_productos_tienda == 3:    
-#         print(venta.detalle)
-#     elif menu_productos_tienda == 0:
-#         print("Saliendo del programa")
-#         terminar_operacion = True
-
-# print(venta.detalle)
+    else:
+        print("Opción no válida")
+        exit()        
